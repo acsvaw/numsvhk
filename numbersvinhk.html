@@ -17,8 +17,9 @@
         body, html {
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Recommended for hosted iframes */
+            overflow: hidden; 
             background-color: transparent;
+            height: 100%;
         }
 
         #rl-infographic-wrapper {
@@ -33,12 +34,12 @@
             box-sizing: border-box;
         }
 
-        /* Container using the padding hack for stable aspect ratio */
         .chart-container {
             width: 100%;
             position: relative;
             height: 0;
-            padding-bottom: 65%; /* 8:5 Aspect Ratio approx */
+            /* Default aspect ratio for desktop */
+            padding-bottom: 65%; 
         }
 
         .grid-inner {
@@ -93,7 +94,6 @@
             }
         }
 
-        /* Chinese Vertical Text */
         .main-text {
             color: black; 
             font-weight: 900;
@@ -107,7 +107,6 @@
             gap: 0.05em; 
         }
 
-        /* English Text scaling */
         .sub-text {
             color: black; 
             font-weight: 900;
@@ -138,9 +137,9 @@
             filter: grayscale(0.3);
         }
 
-        /* Mobile specific adjustments */
+        /* Mobile specific adjustments - Taller ratio to make characters bigger */
         @media (max-width: 768px) {
-            .chart-container { padding-bottom: 90%; }
+            .chart-container { padding-bottom: 100%; }
             .sub-text { font-size: clamp(7px, 14cqi, 16px); }
         }
     </style>
