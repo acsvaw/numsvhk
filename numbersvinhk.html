@@ -101,6 +101,7 @@
             line-height: 1; 
             font-size: 26cqh; 
             width: 95cqi; 
+            max-height: 90cqh; /* Prevents overflow */
             display: flex;
             flex-direction: column; 
             justify-content: center;
@@ -137,10 +138,11 @@
             filter: grayscale(0.3);
         }
 
-        /* Mobile specific adjustments - Taller ratio to make characters bigger */
+        /* Mobile specific adjustments - more compact ratio to reduce white space */
         @media (max-width: 768px) {
-            .chart-container { padding-bottom: 100%; }
+            .chart-container { padding-bottom: 75%; }
             .sub-text { font-size: clamp(7px, 14cqi, 16px); }
+            .main-text { font-size: 24cqh; }
         }
     </style>
 
