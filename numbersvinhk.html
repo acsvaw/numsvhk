@@ -1,0 +1,164 @@
+<div id="rl-infographic-wrapper">
+    <!-- 
+        STANDALONE / HOSTED VERSION
+        Host this file (e.g., on GitHub Pages, Vercel, or your own server).
+        Then embed it in Squarespace using the iframe code provided in the chat.
+    -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@900&display=swap');
+
+        :root {
+            --rl-red: #ED553B;
+            --rl-blue: #636EF8;
+            --rl-speed: 0.6s;
+            --rl-ease: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Recommended for hosted iframes */
+            background-color: transparent;
+        }
+
+        #rl-infographic-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Noto Sans HK', -apple-system, BlinkMacSystemFont, sans-serif;
+            position: relative;
+        }
+
+        #rl-infographic-wrapper * {
+            box-sizing: border-box;
+        }
+
+        /* Container using the padding hack for stable aspect ratio */
+        .chart-container {
+            width: 100%;
+            position: relative;
+            height: 0;
+            padding-bottom: 65%; /* 8:5 Aspect Ratio approx */
+        }
+
+        .grid-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            gap: 12px;
+            transition: opacity 0.4s ease, filter 0.4s ease;
+        }
+
+        .bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--rl-speed) var(--rl-ease);
+            overflow: hidden;
+            cursor: default;
+            container-type: size;
+            padding: 4px;
+        }
+
+        .bar-top { background-color: var(--rl-red); }
+        .bar-bottom { background-color: var(--rl-blue); }
+
+        /* Initial Ratios */
+        .col-1 .bar-top { flex: 140; }
+        .col-1 .bar-bottom { flex: 56; }
+
+        .col-2 .bar-top { flex: 151; }
+        .col-2 .bar-bottom { flex: 45; }
+
+        .col-3 .bar-top { flex: 128; }
+        .col-3 .bar-bottom { flex: 68; }
+
+        @media (hover: hover) {
+            .bar:hover {
+                flex: 800 !important;
+                filter: brightness(1.05);
+                z-index: 10;
+            }
+        }
+
+        /* Chinese Vertical Text */
+        .main-text {
+            color: black; 
+            font-weight: 900;
+            text-align: center;
+            line-height: 1; 
+            font-size: 26cqh; 
+            width: 95cqi; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            gap: 0.05em; 
+        }
+
+        /* English Text scaling */
+        .sub-text {
+            color: black; 
+            font-weight: 900;
+            text-align: center;
+            line-height: 1.1;
+            text-transform: uppercase;
+            font-size: clamp(8px, 15cqi, 24px); 
+            width: 100%;
+            max-width: 95cqi;
+            word-wrap: break-word;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @container (min-height: 150px) {
+            .sub-text { font-size: clamp(10px, 14cqh, 28px); }
+        }
+
+        @container (max-height: 120px) {
+            .main-text { font-size: 45cqh; flex-direction: row; gap: 5px; }
+            .sub-text { font-size: clamp(9px, 35cqh, 30px); }
+        }
+
+        .chart-container:hover .column:not(:hover) {
+            opacity: 0.4;
+            filter: grayscale(0.3);
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .chart-container { padding-bottom: 90%; }
+            .sub-text { font-size: clamp(7px, 14cqi, 16px); }
+        }
+    </style>
+
+    <div class="chart-container">
+        <div class="grid-inner">
+            <div class="column col-1">
+                <div class="bar bar-top"><div class="main-text"><span>在</span><span>香</span><span>港</span></div></div>
+                <div class="bar bar-bottom"><div class="sub-text">NUMBERS:</div></div>
+            </div>
+            <div class="column col-2">
+                <div class="bar bar-top"><div class="main-text"><span>性</span><span>暴</span><span>力</span></div></div>
+                <div class="bar bar-bottom"><div class="sub-text"><span>SEXUAL</span><span>VIOLENCE</span></div></div>
+            </div>
+            <div class="column col-3">
+                <div class="bar bar-top"><div class="main-text"><span>數</span><span>字</span><span>：</span></div></div>
+                <div class="bar bar-bottom"><div class="sub-text"><span>IN</span><span>HONG</span><span>KONG</span></div></div>
+            </div>
+        </div>
+    </div>
+</div>
